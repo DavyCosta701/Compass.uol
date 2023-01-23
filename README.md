@@ -6,6 +6,8 @@
   
 ### Sprint 1
 <hr>
-- [x] Git e Github  
+```[tasklist]
+- [ ] Git e Github  
 
 - [ ] GNU/Linux
+```
