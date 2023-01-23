@@ -4,5 +4,6 @@
 <hr>  
 ### Sprint 1
 <hr>
--[ x ] Git e Github
--[ ] GNU/Linux
+-[x] Git e Github  
+
+-[] GNU/Linux
