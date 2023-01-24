@@ -11,9 +11,9 @@
 * [ ] GNU/Linux
   
   
-  <hr>
-
-
+<hr>
+  
+  
 ## Sprint 2
 <hr>  
 
@@ -24,16 +24,14 @@
   
   <hr>
 
-
+  
 ### Sprint 3
 <hr>  
 
 * [ ] Python   
 
   
-  <hr>
-
-  
+<hr>
 ### Sprint 4
 <hr>  
 
@@ -43,5 +41,5 @@
 * [ ] Estatística descritiva com Python
   
   
-  <hr>
+<hr>
   
