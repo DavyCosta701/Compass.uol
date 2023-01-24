@@ -22,14 +22,14 @@
 * [ ] Big Data
   
   
-  <hr>
+<hr>
 
   
 ### Sprint 3
 <hr>  
 
 * [ ] Python   
-
+  
   
 <hr>
 ### Sprint 4
