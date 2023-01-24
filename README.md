@@ -14,7 +14,7 @@
 <hr>
   
   
-## Sprint 2
+### Sprint 2
 <hr>  
 
 * [ ] SQL para Análise de Dados  
@@ -23,7 +23,7 @@
   
   
 <hr>
-
+  
   
 ### Sprint 3
 <hr>  
@@ -42,4 +42,3 @@
   
   
 <hr>
-  
