@@ -17,7 +17,6 @@
 ### Sprint 2
 <hr>  
 
-* [ ] SQL para Análise de Dados  
 * [ ] Banco de dados SQL
 * [ ] Big Data
   
