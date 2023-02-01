@@ -14,7 +14,7 @@
 <hr>
   
   
-### Sprint 2
+### Sprint 2 :open_file_folder:
 <hr>  
 
 * [ ] Banco de dados SQL
