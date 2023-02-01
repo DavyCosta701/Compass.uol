@@ -1,6 +1,6 @@
 [![Imagem da Compass](Compass.jpg)](https://www.linkedin.com/in/davy-carlos-costa-34510b214/)
 
-## Repositório para o programa de bolsas
+## Repositório para o programa de bolsas - Davy Costa
 <hr>  
   
   
@@ -8,7 +8,7 @@
 <hr>  
 
 * [x] Git e Github  
-* [ ] GNU/Linux
+* [x] GNU/Linux
   
   
 <hr>
