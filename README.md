@@ -11,7 +11,6 @@
 * [x] GNU/Linux
   
   
-<hr>
   
   
 ### Sprint 2 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint2)
@@ -21,7 +20,6 @@
 * [ ] Big Data
   
   
-<hr>
   
   
 ### Sprint 3
@@ -30,7 +28,6 @@
 * [ ] Python   
   
   
-<hr>
   
   
 ### Sprint 4
@@ -42,4 +39,3 @@
 * [ ] Estatística descritiva com Python
   
   
-<hr>
