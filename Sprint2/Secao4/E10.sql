@@ -11,5 +11,6 @@ soma_total as (
 	from total_vendas
 	GROUP by nmvdd
 )
-SELECT cdvdd, nmvdd, valor_total_vendas, round(valor_total_vendas * (perccomissao/100), 2) as comissao from soma_total
+SELECT nmvdd as vendedor, valor_total_vendas, round(valor_total_vendas * (perccomissao/100.0), 2) as comissao from soma_total
+group by vendedor
 order by comissao desc
