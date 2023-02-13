@@ -4,7 +4,7 @@
 
 Olá! Meu nome é Davy Costa. Atualmente estou no 4 semestre de Análise e Desenvolvimento de Sistemas no IFPA - Campus Belém.  
 Estou estudando para trabalhar com Engenharia de Dados.   
-Estou tentando aprender processamento de dados com Machine Learning/AI como hobby;
+Estou tentando aprender processamento de dados com Machine Learning/AI como hobby.
   
   
 ### Sprint 1
