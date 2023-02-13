@@ -15,7 +15,7 @@
 ### Sprint 2 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint2)
 <hr>  
 
-* [ ] Banco de dados SQL
+* [x] Banco de dados SQL
 * [ ] Big Data
   
   
