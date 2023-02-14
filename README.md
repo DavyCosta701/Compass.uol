@@ -3,7 +3,8 @@
 ## Repositório para o programa de bolsas  
 
 Olá! Meu nome é Davy Costa. 🙋‍♂️    
-Atualmente estou no 4 semestre de Análise e Desenvolvimento de Sistemas no IFPA - Campus Belém. ![Icone IFPA](ifpa_icon.png)
+Atualmente estou no 4 semestre de Análise e Desenvolvimento de Sistemas no IFPA - Campus Belém. <img src="ifpa_icon.png" alt= "Icon IFPA" width="30" height="30">
+
 Estou estudando para trabalhar com Engenharia de Dados.   
 Estou tentando aprender processamento de dados com Machine Learning/AI como hobby.
   
