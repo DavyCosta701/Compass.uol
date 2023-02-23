@@ -26,7 +26,7 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
   
   
   
-### Sprint 3
+### Sprint 3 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint3)
 <hr>  
 
 * [ ] Python   
