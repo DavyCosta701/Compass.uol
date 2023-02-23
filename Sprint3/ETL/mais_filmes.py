@@ -9,6 +9,6 @@ def find_max(lista):
         
     return lista[index]
 
-files = transformer("atores/actors.csv")
+files = transformer(r"Sprint3\ETL\atores\actors.csv")
 
 print(f"O ator com mais filmes é {find_max(files)[0]} com {find_max(files)[2]} filmes")

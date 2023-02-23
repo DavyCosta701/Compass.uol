@@ -9,5 +9,5 @@ def max_media(lista):
         
     return lista[index]
 
-files = transformer("atores/actors.csv")
+files = transformer(r"Sprint3\ETL\atores\actors.csv")
 print(f"O ator com maior média por filme é de {max_media(files)[0]} com {max_media(files)[3]}pts")

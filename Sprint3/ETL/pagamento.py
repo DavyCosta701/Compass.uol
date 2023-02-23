@@ -6,7 +6,7 @@ def find_values(lista):
     count_dict = dict(count_dict)
     return count_dict
 
-files = transformer("atores/actors.csv")
+files = transformer(r"Sprint3\ETL\atores\actors.csv")
 files = find_values(files)
 for i in files.keys():
     print(f'{i}: {files[i]}')

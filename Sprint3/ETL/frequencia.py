@@ -18,7 +18,7 @@ def find_values(lista):
     first_to_5 = {k: count_dict[k] for k in list(count_dict)[:5]}
     return first_to_5
 
-files = transformer("atores/actors.csv")
+files = transformer(r"Sprint3\ETL\atores\actors.csv")
 files = find_values(files)
 print("5 filmes com maior frequência:")
 for key in files:

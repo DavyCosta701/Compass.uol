@@ -5,5 +5,5 @@ def show_avg(lista):
     
 
 
-files = transformer("atores/actors.csv")
+files = transformer(r"Sprint3\ETL\atores\actors.csv")
 print(f"A média de filmes é: {show_avg(files)}")
