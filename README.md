@@ -21,7 +21,7 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 <hr>  
 
 * [x] Banco de dados SQL
-* [ ] Big Data
+* [x] Big Data
   
   
   
