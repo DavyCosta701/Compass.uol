@@ -37,9 +37,9 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 ### Sprint 4
 <hr>  
 
-* [ ] Programação Funcional  
-* [ ] Python Funcional 
-* [ ] Docker para Devs
+* [x] Programação Funcional  
+* [x] Python Funcional 
+* [x] Docker para Devs
 * [ ] Estatística descritiva com Python
   
   
