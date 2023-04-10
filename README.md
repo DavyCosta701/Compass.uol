@@ -43,3 +43,10 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 * [x] Estatística descritiva com Python
   
   
+  
+  
+### Sprint 5 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint5)
+<hr>  
+  
+  
+### Sprint 6 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint6)
