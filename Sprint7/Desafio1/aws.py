@@ -35,7 +35,7 @@ def upload_file(file_name: list, bucket: str) -> bool:
 
 if __name__ == "__main__":
     if upload_file(["movies.csv", "series.csv"], "data-lake-desafio-1"):
-        print("Arquivos Enviado")
+        print("Arquivos Upados")
 
     else:
         print("Erro no Upload")
