@@ -1,2 +1,35 @@
 #Jupyter
-.ipynb_checkpoints/
+*.bundle.*
+lib/
+node_modules/
+*.egg-info/
+.ipynb_checkpoints
+*.tsbuildinfo
+# Virtualenv
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+#ETC
+*.csv
+
+#VsCode
+.vscode/*
+*.vscode/settings.json
+*.vscode/tasks.json
+*.vscode/launch.json
+*.vscode/extensions.json
+*.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
