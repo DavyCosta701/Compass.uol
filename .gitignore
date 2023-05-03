@@ -19,6 +19,7 @@ pip-selfcheck.json
 
 #ETC
 *.csv
+*.json
 
 #VsCode
 .vscode/*
@@ -33,3 +34,7 @@ pip-selfcheck.json
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Configuration and others
+config.py
+*.pyc
