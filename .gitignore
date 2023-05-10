@@ -17,9 +17,10 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
-#ETC
+#Data and Others
 *.csv
 *.json
+*.txt
 
 #VsCode
 .vscode/*
