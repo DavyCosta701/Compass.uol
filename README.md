@@ -52,10 +52,17 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 ### Sprint 6 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint6)
 <hr>  
   
-
+  
 ### Sprint 7 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint7)
 <hr>  
   
 * [x] Hadoop, MapReduce
 * [x] Spark com Pyspark 
 * [x] Desafio 1
+  
+
+### Sprint 8 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint7)
+<hr>  
+  
+* [x] Spark com Pyspark
+* [x] Desafio 2 
