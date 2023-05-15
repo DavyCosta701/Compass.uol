@@ -48,7 +48,6 @@ USE `mydb`;
 CREATE  OR REPLACE VIEW `dim_carro` AS
     SELECT 
         idcarro AS idCarro,
-        kmcarro AS kilometragem,
         classicarro AS classificacao,
         modelo_carro AS modelo,
         anocarro AS ano,
@@ -125,8 +124,7 @@ CREATE  OR REPLACE VIEW `fact_locacao` AS
         qtddiaria,
         vlrdiaria,
         tipocombustivel,
-        datalocacao_iddatalocacao,
-        dataentrega_iddataentrega,
+        kilometragem,
         cliente_idCliente,
         vendedor_idvendedor,
         carro_idcarro,
