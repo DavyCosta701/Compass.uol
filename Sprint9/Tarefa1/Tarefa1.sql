@@ -18,150 +18,6 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`regiao`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`regiao` (
-  `idregiao` INT NOT NULL AUTO_INCREMENT,
-  `regiao` VARCHAR(2) NOT NULL,
-  PRIMARY KEY (`idregiao`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`estado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`estado` (
-  `idestado` INT NOT NULL AUTO_INCREMENT,
-  `estado` VARCHAR(45) NOT NULL,
-  `regiao_idregiao` INT NOT NULL,
-  PRIMARY KEY (`idestado`),
-  UNIQUE INDEX `estado_UNIQUE` (`estado` ASC) VISIBLE,
-  INDEX `fk_estado_regiao1_idx` (`regiao_idregiao` ASC) VISIBLE,
-  CONSTRAINT `fk_estado_regiao1`
-    FOREIGN KEY (`regiao_idregiao`)
-    REFERENCES `mydb`.`regiao` (`idregiao`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`municipio`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`municipio` (
-  `idmunicipio` INT NOT NULL AUTO_INCREMENT,
-  `municipio` VARCHAR(45) NOT NULL,
-  `estado_idestado` INT NOT NULL,
-  PRIMARY KEY (`idmunicipio`),
-  UNIQUE INDEX `municipio_UNIQUE` (`municipio` ASC) VISIBLE,
-  INDEX `fk_municipio_estado_idx` (`estado_idestado` ASC) VISIBLE,
-  CONSTRAINT `fk_municipio_estado`
-    FOREIGN KEY (`estado_idestado`)
-    REFERENCES `mydb`.`estado` (`idestado`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`endereco`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`endereco` (
-  `idendereco_empresa` INT NOT NULL AUTO_INCREMENT,
-  `cep` VARCHAR(16) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `nome_rua` VARCHAR(60) NOT NULL,
-  `numero_rua` INT NULL,
-  `complemento` VARCHAR(45) NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `municipio_idmunicipio` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`idendereco_empresa`),
-  INDEX `fk_endereco_empresa_municipio1_idx` (`municipio_idmunicipio` ASC) VISIBLE,
-  UNIQUE INDEX `cep_UNIQUE` (`cep` ASC) VISIBLE,
-  UNIQUE INDEX `bairro_UNIQUE` (`bairro` ASC) VISIBLE,
-  UNIQUE INDEX `bairro_UNIQUE` (`bairro` ASC) VISIBLE,
-  CONSTRAINT `fk_endereco_empresa_municipio1`
-    FOREIGN KEY (`municipio_idmunicipio`)
-    REFERENCES `mydb`.`municipio` (`idmunicipio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`empresa`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`empresa` (
-  `id_posto` INT NOT NULL AUTO_INCREMENT,
-  `cnpj_revenda` VARCHAR(45) NOT NULL,
-  `nome_revenda` VARCHAR(60) NOT NULL,
-  `endereco_empresa_idendereco_empresa` INT NOT NULL,
-  PRIMARY KEY (`id_posto`),
-  INDEX `fk_empresa_endereco_empresa1_idx` (`endereco_empresa_idendereco_empresa` ASC) VISIBLE,
-  UNIQUE INDEX `nome_revenda_UNIQUE` (`nome_revenda` ASC) VISIBLE,
-  UNIQUE INDEX `cnpj_revenda_UNIQUE` (`cnpj_revenda` ASC) VISIBLE,
-  CONSTRAINT `fk_empresa_endereco_empresa1`
-    FOREIGN KEY (`endereco_empresa_idendereco_empresa`)
-    REFERENCES `mydb`.`endereco` (`idendereco_empresa`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`produto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`produto` (
-  `idproduto` INT NOT NULL AUTO_INCREMENT,
-  `bandeira` VARCHAR(45) NOT NULL,
-  `unidade_medida` VARCHAR(45) NOT NULL,
-  `valor_compra` FLOAT NULL,
-  PRIMARY KEY (`idproduto`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`valor_de_venda`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`valor_de_venda` (
-  `idvalor_de_venda` INT NOT NULL AUTO_INCREMENT,
-  `valor_de_venda` FLOAT NOT NULL,
-  PRIMARY KEY (`idvalor_de_venda`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`vendas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`vendas` (
-  `idvendas` INT NOT NULL AUTO_INCREMENT,
-  `produto_idproduto` INT NOT NULL,
-  `valor_de_venda_idvalor_de_venda` INT NOT NULL,
-  `empresa_id_posto` INT NOT NULL,
-  `data_coleta` DATE NOT NULL,
-  PRIMARY KEY (`idvendas`),
-  INDEX `fk_vendas_produto1_idx` (`produto_idproduto` ASC) VISIBLE,
-  INDEX `fk_vendas_valor_de_venda1_idx` (`valor_de_venda_idvalor_de_venda` ASC) VISIBLE,
-  INDEX `fk_vendas_empresa1_idx` (`empresa_id_posto` ASC) VISIBLE,
-  CONSTRAINT `fk_vendas_produto1`
-    FOREIGN KEY (`produto_idproduto`)
-    REFERENCES `mydb`.`produto` (`idproduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_vendas_valor_de_venda1`
-    FOREIGN KEY (`valor_de_venda_idvalor_de_venda`)
-    REFERENCES `mydb`.`valor_de_venda` (`idvalor_de_venda`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_vendas_empresa1`
-    FOREIGN KEY (`empresa_id_posto`)
-    REFERENCES `mydb`.`empresa` (`id_posto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`pais_cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`pais_cliente` (
@@ -179,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`estado_cliente` (
   `estado_cliente` VARCHAR(45) NOT NULL,
   `pais_cliente_idpais_cliente` INT NOT NULL,
   PRIMARY KEY (`idestado_cliente`),
-  INDEX `fk_estado_cliente_pais_cliente1_idx` (`pais_cliente_idpais_cliente` ASC) VISIBLE,
+  INDEX `fk_estado_cliente_pais_cliente1_idx` (`pais_cliente_idpais_cliente` ASC) ,
   CONSTRAINT `fk_estado_cliente_pais_cliente1`
     FOREIGN KEY (`pais_cliente_idpais_cliente`)
     REFERENCES `mydb`.`pais_cliente` (`idpais_cliente`)
@@ -196,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cidade_cliente` (
   `cidade_cliente` VARCHAR(45) NOT NULL,
   `estado_cliente_idestado_cliente` INT NOT NULL,
   PRIMARY KEY (`idcidade_cliente`),
-  INDEX `fk_cidade_cliente_estado_cliente1_idx` (`estado_cliente_idestado_cliente` ASC) VISIBLE,
+  INDEX `fk_cidade_cliente_estado_cliente1_idx` (`estado_cliente_idestado_cliente` ASC) ,
   CONSTRAINT `fk_cidade_cliente_estado_cliente1`
     FOREIGN KEY (`estado_cliente_idestado_cliente`)
     REFERENCES `mydb`.`estado_cliente` (`idestado_cliente`)
@@ -213,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cliente` (
   `nomeCliente` VARCHAR(45) NULL,
   `cidade_cliente_idcidade_cliente` INT NOT NULL,
   PRIMARY KEY (`idCliente`),
-  INDEX `fk_cliente_cidade_cliente1_idx` (`cidade_cliente_idcidade_cliente` ASC) VISIBLE,
+  INDEX `fk_cliente_cidade_cliente1_idx` (`cidade_cliente_idcidade_cliente` ASC) ,
   CONSTRAINT `fk_cliente_cidade_cliente1`
     FOREIGN KEY (`cidade_cliente_idcidade_cliente`)
     REFERENCES `mydb`.`cidade_cliente` (`idcidade_cliente`)
@@ -263,9 +119,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`carro` (
   `anocarro_idanocarro` INT NOT NULL,
   `marca_carro_idmarca_carro` INT NOT NULL,
   PRIMARY KEY (`idcarro`),
-  INDEX `fk_carro_modelo_carro1_idx` (`modelo_carro_idmodelo_carro` ASC) VISIBLE,
-  INDEX `fk_carro_anocarro1_idx` (`anocarro_idanocarro` ASC) VISIBLE,
-  INDEX `fk_carro_marca_carro1_idx` (`marca_carro_idmarca_carro` ASC) VISIBLE,
+  INDEX `fk_carro_modelo_carro1_idx` (`modelo_carro_idmodelo_carro` ASC) ,
+  INDEX `fk_carro_anocarro1_idx` (`anocarro_idanocarro` ASC) ,
+  INDEX `fk_carro_marca_carro1_idx` (`marca_carro_idmarca_carro` ASC) ,
   CONSTRAINT `fk_carro_modelo_carro1`
     FOREIGN KEY (`modelo_carro_idmodelo_carro`)
     REFERENCES `mydb`.`modelo_carro` (`idmodelo_carro`)
@@ -324,6 +180,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`estado_vendedor` (
 ENGINE = InnoDB;
 
 
+
+
 -- -----------------------------------------------------
 -- Table `mydb`.`vendedor`
 -- -----------------------------------------------------
@@ -333,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`vendedor` (
   `sexo_vendedor` SMALLINT NOT NULL,
   `estado_vendedor_idestado_vendedor` INT NOT NULL,
   PRIMARY KEY (`idvendedor`),
-  INDEX `fk_vendedor_estado_vendedor1_idx` (`estado_vendedor_idestado_vendedor` ASC) VISIBLE,
+  INDEX `fk_vendedor_estado_vendedor1_idx` (`estado_vendedor_idestado_vendedor` ASC),
   CONSTRAINT `fk_vendedor_estado_vendedor1`
     FOREIGN KEY (`estado_vendedor_idestado_vendedor`)
     REFERENCES `mydb`.`estado_vendedor` (`idestado_vendedor`)
@@ -358,12 +216,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`locacao` (
   `carro_idcarro` INT NOT NULL,
   `combustivel_idcombustivel` INT NOT NULL,
   PRIMARY KEY (`idlocacao`),
-  INDEX `fk_locacao_datalocacao1_idx` (`datalocacao_iddatalocacao` ASC) VISIBLE,
-  INDEX `fk_locacao_dataentrega1_idx` (`dataentrega_iddataentrega` ASC) VISIBLE,
-  INDEX `fk_locacao_cliente1_idx` (`cliente_idCliente` ASC) VISIBLE,
-  INDEX `fk_locacao_vendedor1_idx` (`vendedor_idvendedor` ASC) VISIBLE,
-  INDEX `fk_locacao_carro1_idx` (`carro_idcarro` ASC) VISIBLE,
-  INDEX `fk_locacao_combustivel1_idx` (`combustivel_idcombustivel` ASC) VISIBLE,
+  INDEX `fk_locacao_datalocacao1_idx` (`datalocacao_iddatalocacao` ASC) ,
+  INDEX `fk_locacao_dataentrega1_idx` (`dataentrega_iddataentrega` ASC) ,
+  INDEX `fk_locacao_cliente1_idx` (`cliente_idCliente` ASC) ,
+  INDEX `fk_locacao_vendedor1_idx` (`vendedor_idvendedor` ASC) ,
+  INDEX `fk_locacao_carro1_idx` (`carro_idcarro` ASC) ,
+  INDEX `fk_locacao_combustivel1_idx` (`combustivel_idcombustivel` ASC) ,
   CONSTRAINT `fk_locacao_datalocacao1`
     FOREIGN KEY (`datalocacao_iddatalocacao`)
     REFERENCES `mydb`.`datalocacao` (`iddatalocacao`)
