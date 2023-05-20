@@ -14,6 +14,7 @@ from config import API_KEY
 
 
 def upload_file(file_name:str, bucket: str) -> bool:
+    print("Starting Upload")
     """Função de carregar arquivos para um bucket
     Args:
         file_name (str): Arquivo a ser enviado para o bucket S3
@@ -22,7 +23,6 @@ def upload_file(file_name:str, bucket: str) -> bool:
     Returns:
         bool: Retorna False se a operação der erro, caso contrário True
     """
-
     session = boto3.Session(profile_name="default")
     s3_client = session.client("s3")
     
@@ -44,23 +44,24 @@ def upload_file(file_name:str, bucket: str) -> bool:
 
 
 def drama() -> ndarray:
+    print("Starting drama")
     """Abre o csv de series
 
     Returns:
         ndarray: Array do numpy com todos os valores únicos com "romance" 
     """
-    session = boto3.Session(profile_name="default")
-    s3_client = session.client("s3")
-    obj = s3_client.get_object(Bucket = 'data-lake-desafio-1', Key = 'Raw/Local/CSV/SERIES/2023/04/21/series.csv')
+    #session = boto3.Session(profile_name="default")
+    #s3_client = session.client("s3")
+    #obj = s3_client.get_object(Bucket = 'data-lake-desafio-1', Key = 'Raw/Local/CSV/SERIES/2023/04/21/series.csv')
 
-    df = pd.read_csv(obj['Body'],
+    df = pd.read_csv('Sprint8/series.csv',
                      delimiter='|',
                      )
     df = df.replace(r'\N','', ) 
 
     #Regex selecionando qualquer midia na categoria "Romance" e o ano de lançamento depois dos anos 2000,
     #retornando os ids unique
-    return df[(df['genero'].str.contains(r'\bRomance\b') == True) & (pd.to_numeric(df['anoLancamento'])>= 2000)]['id'].unique()
+    return df[(df['genero'].str.contains(r'\bRomance\b') == True) & (pd.to_numeric(df['anoLancamento'])>= 1980)]['id'].unique()
 
 def search(id:str) -> json:
     """ Retorna o id procurado
@@ -87,22 +88,22 @@ def search(id:str) -> json:
             
 
 if __name__ == '__main__':
-    
+    print("Starting main")
+    ids = drama()
+    counter = 0
+    before = 0
+
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        ids = drama()
-        counter = 0
-        before = 0
         futures = (executor.submit(search, id) for id in ids)
         result = [future.result() for future in concurrent.futures.as_completed(futures)]
-        #Arquivos 20 partes de 239 dados cada
-        for i in enumerate(result):
-            if i[0]%239 == 0 and i[0] != 0:
-                counter += 1
-                with open(f'json_{counter}.json', 'w') as f:
-                    json.dump(result[before: before + 239], f, indent=2)
-                    upload_file(f.name, "data-lake-desafio-1")
-                before = i[0]
-        
+        #Arquivos 20 partes de 200 dados cada
+    for i in enumerate(result):
+        if i[0]%200 == 0 and i[0] != 0:
+            counter += 1
+            with open(f'Sprint8/test/json_{counter}.json', 'w') as f:
+                json.dump(result[before: before + 200], f, indent=1)    
+            upload_file(f'Sprint8/test/json_{counter}.json', "data-lake-desafio-1")   #Uma identação quase destruiu o meu projeto inteiro :DDDDD 
+        before = i[0]
 
 
 
