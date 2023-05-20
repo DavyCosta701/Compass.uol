@@ -96,7 +96,7 @@ if __name__ == '__main__':
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = (executor.submit(search, id) for id in ids)
         result = [future.result() for future in concurrent.futures.as_completed(futures)]
-        #Arquivos 20 partes de 200 dados cada
+        #Arquivo separado em 200 JSONs cada
     for i in enumerate(result):
         if i[0]%200 == 0 and i[0] != 0:
             counter += 1
