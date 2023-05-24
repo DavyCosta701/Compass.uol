@@ -42,7 +42,6 @@ def upload_file(file_name:str, bucket: str) -> bool:
         return False
     return True
 
-
 def drama() -> ndarray:
     print("Starting drama")
     """Abre o csv de series
