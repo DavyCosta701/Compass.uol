@@ -60,9 +60,24 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 * [x] Spark com Pyspark 
 * [x] Desafio 1
   
-
+  
 ### Sprint 8 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint8)
 <hr>  
   
 * [x] Spark com Pyspark
 * [x] Desafio 2 
+  
+
+### Sprint 9 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint9)
+<hr>  
+  
+* [x] Desafio 3 
+* [x] Desafio 4
+
+
+### Sprint 10 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint9)
+<hr>  
+  
+* [ ] Complete Introduction to AWS QuickSight [2023 Edition]
+* [ ] Desafio 5
+* [ ] Workshop de QuickSight para Autores
