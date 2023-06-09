@@ -78,6 +78,6 @@ Estou tentando aprender processamento de dados com Machine Learning/AI como hobb
 ### Sprint 10 [:open_file_folder:](https://github.com/DavyCosta701/Compass.uol/tree/main/Sprint9)
 <hr>  
   
-* [ ] Complete Introduction to AWS QuickSight [2023 Edition]
-* [ ] Desafio 5
-* [ ] Workshop de QuickSight para Autores
+* [x] Complete Introduction to AWS QuickSight [2023 Edition]
+* [x] Desafio 5
+* [x] Workshop de QuickSight para Autores
