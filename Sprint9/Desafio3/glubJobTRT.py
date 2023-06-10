@@ -22,22 +22,37 @@ source_file = args['S3_INPUT_PATH_JSON']
 target_path = args['S3_TARGET_PATH_JSON']
 
 def dataframe_select(dframe):
-    return dframe.select("adult",
-                          "backdrop_path",
-                          "id",
-                          "name",
-                          "original_language",
-                          "original_name",
-                          "overview",
-                          "poster_path",
-                          "media_type",
-                          "genre_ids",
-                          "popularity",
-                          "first_air_date",
-                          "vote_average",
-                          "vote_count",
-                          "origin_country").dropna()
-
+    dframe = dframe.select("tv_results.adult",
+                          "tv_results.backdrop_path",
+                          "tv_results.id",
+                          "tv_results.name",
+                          "tv_results.original_language",
+                          "tv_results.original_name",
+                          "tv_results.overview",
+                          "tv_results.poster_path",
+                          "tv_results.media_type",
+                          "tv_results.genre_ids",
+                          "tv_results.popularity",
+                          "tv_results.first_air_date",
+                          "tv_results.vote_average",
+                          "tv_results.vote_count",
+                           explode("tv_results.origin_country").alias('origin_country'))
+    dframe = dframe.withColumnRenamed('tv_results.popularity', 'popularity') \
+  .withColumnRenamed('tv_results.vote_average', 'vote_average') \
+  .withColumnRenamed('tv_results.vote_count', 'vote_count') \
+  .withColumnRenamed('tv_results.name', 'name') \
+  .withColumnRenamed('tv_results.first_air_date', 'first_air_date') \
+  .withColumnRenamed('tv_results.id', 'id') 
+  
+  
+    return dframe.withColumn('popularity', explode('popularity')) \
+  .withColumn('vote_average', explode('vote_average')) \
+  .withColumn('vote_count', explode('vote_count')) \
+  .withColumn('first_air_date', explode('first_air_date')) \
+  .withColumn('origin_country', explode('origin_country')) \
+  .withColumn('name', explode('name')) \
+  .withColumn('id', explode('id')) 
+  
 
 
 df = glueContext.create_dynamic_frame.from_options(
@@ -47,13 +62,15 @@ df = glueContext.create_dynamic_frame.from_options(
 source_file
 ]
 },
-"JSON",
-{"multiline": True}
+"JSON"
 )
+
 
 spark_df = df.toDF()
 series = dataframe_select(spark_df)
 dynamic_df = DynamicFrame.fromDF(series, glueContext)
+series.show(20)
+
 
 glueContext.write_dynamic_frame.from_options(
 frame = dynamic_df,
