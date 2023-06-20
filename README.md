@@ -2,10 +2,8 @@
 
 ## Repositório para o programa de bolsas  
 
-Olá! Meu nome é Davy Costa. 🙋‍♂️    
-Atualmente estou no 4 semestre de Análise e Desenvolvimento de Sistemas no IFPA - Campus Belém. 
-Estou estudando para trabalhar com Engenharia de Dados.   
-Estou tentando aprender processamento de dados com Machine Learning/AI como hobby.
+Este repositório foi utilizado para o programa de treinamento em análise de dados da Compass.UOL, com duração de 6 meses. Explore a vontade! :D
+(A imagem acima leva ao meu linkedin)
   
   
 ### Sprint 1
